@@ -26,8 +26,8 @@ app.put("/:id", async function(req, res) {
 })
 
 app.delete("/:id", async function(req, res) {
-  var resultado = await usuario.findByPk(req.params.id);
-  res.send(resultado)
+  var resultado = await usuario.destroy({ where: { id: req.params.id }});
+  res.json(resultado)
 })
 
 app.get("/:id", async function(req, res) {
