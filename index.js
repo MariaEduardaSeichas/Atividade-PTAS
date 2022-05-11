@@ -47,6 +47,7 @@ app.post("/empresas", async function(req,res){
 
 app.put("/empresas/:id", async function(req, res) {
   var resultado = await empresa.findByPk(req.params.id);
+  //console.log(req.body.nome)
   resultado.nome = req.body.nome
   var salvar = await resultado.save()
   res.json(salvar)
