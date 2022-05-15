@@ -31,7 +31,7 @@ app.delete("/usuarios/:id", async function(req, res) {
 })
 
 app.get("/usuarios/:id", async function(req, res) {
-  var resultado = await usuario.findByPk(req.params.id);
+  var resultado = await usuario.findOne(req.params.id);
   res.send(resultado)
 })
 
@@ -47,7 +47,6 @@ app.post("/empresas", async function(req,res){
 
 app.put("/empresas/:id", async function(req, res) {
   var resultado = await empresa.findByPk(req.params.id);
-  //console.log(req.body.nome)
   resultado.nome = req.body.nome
   var salvar = await resultado.save()
   res.json(salvar)
